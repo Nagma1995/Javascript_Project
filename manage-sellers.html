@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Sellers</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="seller-management-container">
+        <h2>Manage Sellers</h2>
+
+        <!-- Add/Update Seller Form -->
+        <form id="seller-form">
+            <input type="hidden" id="seller-id">
+            <input type="text" id="seller-name" placeholder="Seller Name" required>
+            <input type="email" id="seller-email" placeholder="Seller Email" required>
+            <input type="text" id="seller-contact" placeholder="Contact Number" required>
+            <button type="submit">Save Seller</button>
+        </form>
+
+        <!-- Sellers List -->
+        <h3>Sellers List</h3>
+        <table id="seller-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Seller rows will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

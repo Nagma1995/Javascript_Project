@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="manage-profile-container">
+        <h2>Manage Profile</h2>
+        
+        <!-- Profile Form -->
+        <form id="profile-form">
+            <input type="hidden" id="profile-id">
+            <input type="text" id="admin-name" placeholder="Full Name" required>
+            <input type="email" id="admin-email" placeholder="Email" required>
+            <input type="password" id="admin-password" placeholder="Password" required>
+            <input type="text" id="admin-contact" placeholder="Contact Number" required>
+            <button type="submit" id="save-profile">Save Profile</button>
+        </form>
+
+        <!-- Profile Display -->
+        <div id="profile-display" style="display: none;">
+            <h3>Profile Information</h3>
+            <p><strong>Name:</strong> <span id="profile-name"></span></p>
+            <p><strong>Email:</strong> <span id="profile-email"></span></p>
+            <p><strong>Contact:</strong> <span id="profile-contact"></span></p>
+            <button id="edit-profile">Edit Profile</button>
+            <button id="delete-profile">Delete Profile</button>
+        </div>
+        <!-- <table border="1px">
+            <thead>
+                <th>Name</th>
+                <th>Email</th>
+                <th>password</th>
+                <th>content</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table> -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

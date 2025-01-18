@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Products</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="manage-products-container">
+        <h2>Manage Products</h2>
+        <form id="product-form">
+            <input type="text" id="product-name" placeholder="Product Name" required>
+            <input type="number" id="product-price" placeholder="Price" required>
+            <input type="number" id="product-stock" placeholder="Stock Quantity" required><br>
+            <textarea id="product-description" placeholder="Product Description"></textarea><br><br>
+            <button type="submit">Add Product</button>
+        </form>
+
+        <div id="product-list">
+            <!-- Dynamic product list will appear here -->
+        </div>
+    </div>
+
+    <script>
+        const productForm = document.getElementById('product-form');
+        const productList = document.getElementById('product-list');
+
+        let products = [];
+
+        productForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('product-name').value;
+            const price = document.getElementById('product-price').value;
+            const stock = document.getElementById('product-stock').value;
+            const description = document.getElementById('product-description').value;
+
+            const newProduct = { name, price, stock, description };
+            products.push(newProduct);
+
+            displayProducts();
+            productForm.reset();
+        });
+
+        function displayProducts() {
+            productList.innerHTML = "";
+            products.forEach((product, index) => {
+                const productDiv = document.createElement('div');
+                productDiv.classList.add('product-item');
+                productDiv.innerHTML = `
+                    <h3>${product.name}</h3>
+                    <p>Price: $${product.price}</p>
+                    <p>Stock: ${product.stock}</p>
+                    <p>${product.description}</p>
+                    <button onclick="removeProduct(${index})">Remove</button>
+                `;
+                productList.appendChild(productDiv);
+            });
+        }
+
+        function removeProduct(index) {
+            products.splice(index, 1);
+            displayProducts();
+        }
+    </script>
+</body>
+</html>
